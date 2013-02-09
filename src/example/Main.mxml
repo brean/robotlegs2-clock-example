@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!--
+    Example for flex and spark components working with 
+    robotlegs (Version 2 Beta 4)
+-->
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
+               xmlns:s="library://ns.adobe.com/flex/spark"
+               xmlns:view="example.view.*"
+               preinitialize="preInit(event)"
+               addedToStage="added(event)"
+               frameRate="60">
+
+    <fx:Script>
+    <![CDATA[
+        import flash.events.Event;
+        
+        private var config:MainConfig;
+        
+        /**
+         * create robotlegs context as first thing (before the Application
+         *  has been initialized)
+         */
+        private function preInit(event:flash.events.Event):void {
+            config = new MainConfig(this);
+        }
+        
+        private function added(event:flash.events.Event):void {
+            // init stage.
+            stage.scaleMode = StageScaleMode.NO_SCALE;
+            stage.align = StageAlign.TOP_LEFT;
+        }
+    ]]>
+    </fx:Script>
+
+    <!-- GUI with spark / mx flex components
+         this UI will be mediated by GUIViewMediator -->
+    <view:GUIView width="100%" height="100%" top="0" left="0" />
+    
+
+</s:Application>
