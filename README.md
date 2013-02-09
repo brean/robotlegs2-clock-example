@@ -1,7 +1,9 @@
 # RobotLegs 2 clock example
 ========================
 
-This simple example just shows a the current time after you click on a button. Just run the index.html in your browser to see it for yourself.
+This simple example just shows the current time at a Label after you clicked on a Button. 
+
+Just run the index.html in your browser to see it for yourself.
 It makes use of all parts from the MVCS software architecture. 
 Take a look at the robotlegs class diagram ( http://www.robotlegs.org/diagram/ ), you can find every step of the diagram in this project.
 
