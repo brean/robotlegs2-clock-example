@@ -7,10 +7,9 @@ import time
 import os
 import shutil
 
-sdk = flex.SDK('4.6.0 build 23201')
+sdk = flex.SDK('4.9.1')
 
 sdk.swf('Robotlegs2Test', 'src/example/Main.mxml',
         output='bin/Robotlegs2Test.swf', 
-        requires=['robotlegs-framework-v2.0.0b4',
-                  'Swiftsuspenders-v2.0.0rc3stray1'],
+        requires=[l[:-4] for l in os.listdir('libs/') if l.endswith('swc')],
         args=['-static-link-runtime-shared-libraries=true', '-debug'])
