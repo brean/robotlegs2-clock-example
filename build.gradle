@@ -1,0 +1,44 @@
+apply plugin: 'gradlefx'
+apply plugin: 'maven'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath group: 'org.gradlefx', name: 'gradlefx', version: '0.6'
+    }
+}
+
+type = 'swf'
+
+repositories {
+	add(new org.apache.ivy.plugins.resolver.URLResolver()) {
+		name = 'Apache'
+		addArtifactPattern 'http://apache.cu.be/flex/[revision]/binaries/[module]-[revision]-bin.[ext]'
+	}
+}
+
+dependencies {
+    flexSDK group: 'org.apache', name: 'apache-flex-sdk', version: '4.9.1', ext: 'zip'
+    //external files('libs/')
+    internal files('libs/Swiftsuspenders-v2.0.0.swc')
+    internal files('libs/robotlegs-framework-v2.2.0.swc')
+}
+
+sdkAutoInstall {
+	showPrompts	= false
+}
+
+additionalCompilerOptions = [
+  '-target-player=11.1',
+]
+
+output = 'Robotlegs2Test'
+
+mainClass = 'example/Main.mxml'
+
+srcDirs = ['src/']
+
+buildDir = 'bin'
+
